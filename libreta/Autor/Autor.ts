@@ -27,6 +27,15 @@ class Autor {
     return this.dni;
   }
 
+  public getFullData() : Object {
+
+    return {
+      nombre : this.getNombre(),
+      apellido : this.getApellido(),
+      dni : this.getDni(),
+    }
+  }
+
 }
 
 module.exports = Autor;
