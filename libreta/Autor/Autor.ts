@@ -20,7 +20,7 @@ class Autor {
   }
 
   public setDni(d : Number){
-    return this.dni;
+    this.dni = d;
   }
 
   public getDni(){
