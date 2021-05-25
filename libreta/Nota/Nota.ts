@@ -1,16 +1,18 @@
+import Autor from "../Autor/Autor";
+
 class Nota {
-  private titulo : String;
+  private autor : Autor;
   private contenido : String;
-  private fecha : String;
+  private id : Number;
+
+  constructor(aut : Autor) {
+    this.autor = aut;
+  }
+
+  public getAutor(){
+    return this.autor;
+  }
   
-  public setTitulo(t : String){
-    this.titulo = t;
-  }
-
-  public getTitulo () : String{
-    return this.titulo;
-  }
-
   public setContenido (c : String) {
     this.contenido = c;
   }
@@ -19,22 +21,13 @@ class Nota {
     return this.contenido;
   }
 
-  public setFecha (f : String) {
-    this.fecha = f;
+  public setId (f : Number) {
+    this.id = f;
   }
 
-  public getFecha () : String {
-    return this.fecha;
-  }
-
-  public getFullData() : Object {
-
-    return {
-      titulo : this.getTitulo(),
-      contenido : this.getContenido(),
-      fecha : this.getFecha(),
-    }
+  public getId () : Number {
+    return this.id;
   }
 }
 
-module.exports = Nota
+export default Nota;
