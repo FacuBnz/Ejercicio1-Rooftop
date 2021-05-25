@@ -1,57 +1,20 @@
-let nota = require('./Nota/Nota');
-let autor = require('./Autor/Autor');
+import Nota from "../libreta/Nota/Nota";
+
 
 class Libreta {
-  private static lista;
+  private lista : Array<Nota> = [];
 
-  constructor(){
-    Libreta.lista = new Set();
-  }
-
-  public newNota(titulo : String, contenido : String, fecha : String, nombre : String, apellido : String, dni : Number){
-
-    let n = new nota();
-    let a = new autor();
-
-    try {
-      a.setNombre(nombre);
-      a.setApellido(apellido);
-      a.setDni(dni);
-
-      n.setTitulo(titulo);
-      n.setContenido(contenido);
-      n.setFecha(fecha);
-
-      Libreta.lista.add({
-        autor : a.getFullData(),
-        nota : n.getFullData(),
-      });
-
-    } catch (e) {
-      console.log(e.message);
-    }
+  public addNota(nota : Nota){
+      this.lista.push(nota);
   }
 
   public getAllLista() {
-    return Libreta.lista
+    return this.lista
   }
 
-  public getNotasForAutor(nom : String) : Array<String> {
-
-    try {
-      const arr = Array.from(Libreta.lista);
-    
-      let res = []
-
-      for (let i of arr) {
-        if(i['autor']['nombre'] == nom ) res.push(i['nota'])
-      }
-      return res;
-
-    } catch (e) {
-      console.log(e.message);
-    }
+  public getNotasForDni(dni : Number) : Array<Nota> {
+    return this.lista.filter(nota => nota.getAutor().getDni() == dni);
   }
 }
 
-module.exports = Libreta
+export default Libreta
