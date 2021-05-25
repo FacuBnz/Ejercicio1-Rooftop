@@ -1,3 +1,5 @@
+"use strict";
+exports.__esModule = true;
 var Autor = /** @class */ (function () {
     function Autor() {
     }
@@ -19,13 +21,6 @@ var Autor = /** @class */ (function () {
     Autor.prototype.getDni = function () {
         return this.dni;
     };
-    Autor.prototype.getFullData = function () {
-        return {
-            nombre: this.getNombre(),
-            apellido: this.getApellido(),
-            dni: this.getDni()
-        };
-    };
     return Autor;
 }());
-module.exports = Autor;
+exports["default"] = Autor;

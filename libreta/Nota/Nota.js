@@ -1,11 +1,11 @@
+"use strict";
+exports.__esModule = true;
 var Nota = /** @class */ (function () {
-    function Nota() {
+    function Nota(aut) {
+        this.autor = aut;
     }
-    Nota.prototype.setTitulo = function (t) {
-        this.titulo = t;
-    };
-    Nota.prototype.getTitulo = function () {
-        return this.titulo;
+    Nota.prototype.getAutor = function () {
+        return this.autor;
     };
     Nota.prototype.setContenido = function (c) {
         this.contenido = c;
@@ -13,19 +13,12 @@ var Nota = /** @class */ (function () {
     Nota.prototype.getContenido = function () {
         return this.contenido;
     };
-    Nota.prototype.setFecha = function (f) {
-        this.fecha = f;
+    Nota.prototype.setId = function (f) {
+        this.id = f;
     };
-    Nota.prototype.getFecha = function () {
-        return this.fecha;
-    };
-    Nota.prototype.getFullData = function () {
-        return {
-            titulo: this.getTitulo(),
-            contenido: this.getContenido(),
-            fecha: this.getFecha()
-        };
+    Nota.prototype.getId = function () {
+        return this.id;
     };
     return Nota;
 }());
-module.exports = Nota;
+exports["default"] = Nota;
