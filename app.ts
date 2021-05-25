@@ -1,48 +1,49 @@
-let libreta = require('./libreta/Libreta');
+import Autor from "./libreta/Autor/Autor";
+import Nota from "./libreta/Nota/Nota";
+import Libreta from "./libreta/Libreta";
 
-let libre = new libreta();
+let autor1 = new Autor();
 
-let titulo = "frases de macri"
-let contenido = "pasaron cosas, pusimos metas optimistas, hace 4 años que no crecemos"
-let fecha = "21/05/2021"
-let nombre = "Mauricio"
-let apellido = "Macri"
-let dni = 12345678
+autor1.setNombre("Facu");
+autor1.setApellido("Benitez");
+autor1.setDni(12345678);
 
+let nota1 = new Nota(autor1);
 
-libre.newNota(titulo, contenido, fecha, nombre, apellido, dni);
+nota1.setId(1);
+nota1.setContenido("pasaron cosas, pusimos metas optimistas, hace 4 años que no crecemos");
 
-titulo = "frases simpson"
-contenido = "Ay caramba, a la grande le puse cuca, plan dental lisa necesita fresos"
-fecha = "20/05/2021"
-nombre = "Facu"
-apellido = "Benitez"
-dni = 45679812
+let autor2 = new Autor();
 
-libre.newNota(titulo, contenido, fecha, nombre, apellido, dni);
+autor2.setNombre("Abi");
+autor2.setApellido("Gomez");
+autor2.setDni(78945612);
 
-titulo = "patrones de diseño"
-contenido = "Singleton, factory, builder, MVC"
-fecha = "23/05/2019"
-nombre = "Facu"
-apellido = "Benitez"
-dni = 45678912
+let nota2 = new Nota(autor2);
 
-libre.newNota(titulo, contenido, fecha, nombre, apellido, dni);
+nota2.setId(2);
+nota2.setContenido("Ay caramba, a la grande le puse cuca, plan dental lisa necesita fresos");
 
-titulo = "lenguajes de programacion"
-contenido = "C++, PHP, JavaScript, Java, C#, C"
-fecha = "25/11/20"
-nombre = "Nico"
-apellido = "Gutierrez"
-dni = 45678932
+let autor3 = new Autor();
 
-libre.newNota(titulo, contenido, fecha, nombre, apellido, dni);
+autor3.setNombre("Mauricio");
+autor3.setApellido("Macri");
+autor3.setDni(45612378);
 
+let nota3 = new Nota(autor3);
 
-let lista = libre.getAllLista();
-let notasFacu = libre.getNotasForAutor('Facu');
+nota3.setId(3);
+nota3.setContenido("pasaron cosas, pusimos metas optimistas, hace 4 años que no crecemos");
 
+console.log(nota1);
+console.log(nota2);
+console.log(nota3);
 
-console.log(lista);
-console.log(notasFacu);
+let listado = new Libreta();
+
+listado.addNota(nota1);
+listado.addNota(nota2);
+listado.addNota(nota3);
+
+console.log(listado.getAllLista());
+console.log(listado.getNotasForDni(45612378));
